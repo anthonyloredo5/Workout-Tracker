@@ -7,9 +7,10 @@ const workoutSchema = new Schema({
         type: Date,
         default: () => new Date()
     },
-    exercises: {
+    exercises: [
+        {
         type: {
-            String,
+            type: String,
             trim: true,
             require: "Enter an exercise type"
         },
@@ -44,6 +45,19 @@ const workoutSchema = new Schema({
             require: "Enter a distance traveled"
         }
     }
+    ]
 })
 
-module.exports = workoutSchema;
+//custom schema method buit from schema
+workoutSchema.methods.totalDuration = () => {
+    var count;
+    for(var i = 0; i < this.exercises; i++){
+        count += this.exercises[i].duration;
+    }
+    return count;
+}
+
+
+const model = mongoose.model("Workout", workoutSchema);
+
+module.exports = model;
