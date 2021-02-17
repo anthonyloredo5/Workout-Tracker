@@ -3,12 +3,12 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const dotenv = require('dotenv');
+// const dotenv = require('dotenv');
 
 const PORT = process.env.PORT || 3002;
 
 const app = express();
-dotenv.config();
+// dotenv.config();
 
 //middle for mongoose
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
