@@ -7,28 +7,6 @@ const model = require('../models/index.js');
 router.get('/api/workouts', (req, res) => {
     model.Workout.find().then((workouts) => {
 
-        // var workoutsWithDuration = []
-
-        
-        // for (let k = 0; k < workouts.length; k++) {
-        //  console.log('earch person from DB!!!!!!!!!!', workouts[k])
-
-        //     var total=0
-        //     for(var i = 0; i < workouts[k].exercises.length; i++){
-        //         console.log('talling up the duration loop!!!!')
-        //         total += workouts[k].exercises[i].duration;
-        //     }
-        //     // console.log('TOTAL TO BE ADDED!! to today duration', total)
-        //     // workouts[k].totalDuration = total;
-        //     console.log('WORKOUT WIHT NEW TOTAL DURATION ADDED!!!', workouts[k])
-
-        //     var newWorkout = Object.assign({}, workouts[k], {totalDuration: total});
-        //     console.log('New workout we made with duration!!!', newWorkout)
-
-        //     workoutsWithDuration.push(newWorkout)
-
-        // }
-
         res.status(200).json(workouts);
     })
 });
