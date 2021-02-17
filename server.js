@@ -25,7 +25,12 @@ app.use(require('./routes/htmlRoutes.js'));
 app.use(require('./routes/apiRoutes.js'));
 
 //db connection
-mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.CONNECTION_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
 .then(() => app.listen(PORT, () => console.log(`App listening on http://localhost:${PORT}`)))
 .catch((error) => console.log(error.message));
 
