@@ -2,18 +2,17 @@ const express = require('express');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors =  require('cors');
+const cors = require('cors');
 const dotenv = require('dotenv');
 
 const PORT = process.env.PORT || 3002;
-const MONGODB_URI = 'mongodb+srv://anthonyloredo5:anthonyloredo5123@cluster0.ts5pj.mongodb.net/workoutTracker?retryWrites=true&w=majority';
 
 const app = express();
 dotenv.config();
 
 //middle for mongoose
-app.use(bodyParser.json({ limit:"30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit:"30mb", extended: true }));
+app.use(bodyParser.json({ limit: "30mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use(logger("dev"));
@@ -27,11 +26,10 @@ app.use(require('./routes/apiRoutes.js'));
 
 //db connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fierce-tor-31009', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false
-  })
-.then(() => app.listen(PORT, () => console.log(`App listening on http://localhost:${PORT}`)))
-.catch((error) => console.log(error.message));
-
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+})
+  .then(() => app.listen(PORT, () => console.log(`App listening on http://localhost:${PORT}`)))
+  .catch((error) => console.log(error.message));
