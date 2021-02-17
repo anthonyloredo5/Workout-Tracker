@@ -34,4 +34,3 @@ mongoose.connect(process.env.CONNECTION_URL, {
 .then(() => app.listen(PORT, () => console.log(`App listening on http://localhost:${PORT}`)))
 .catch((error) => console.log(error.message));
 
-mongoose.set('useFindAndModify', false);
