@@ -1,14 +1,26 @@
 const router = require('express').Router();
 const path = require('path');
+const { Workout } = require('../models/index.js');
 const model = require('../models/index.js');
 
 //Get route
 // mongoose aggregate function for get routes 
 router.get('/api/workouts', (req, res) => {
-    model.Workout.find().then((workouts) => {
-
-        res.status(200).json(workouts);
+    model.Workout.aggregate([
+        {
+            $addFields: {
+                totalDuration: {
+                    $sum: '$exercise.duration',
+                },
+            },
+        },
+    ])
+    .then((dbWorkouts) => {
+        res.json(dbWorkouts);
     })
+    .catch((err) => {
+        res.json(err);
+    });
 });
 
 router.get('/api/workouts/range', (req, res) => {
