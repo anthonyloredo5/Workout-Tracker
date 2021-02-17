@@ -20,7 +20,6 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-
 app.use(require('./routes/htmlRoutes.js'));
 app.use(require('./routes/apiRoutes.js'));
 
