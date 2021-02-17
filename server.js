@@ -25,7 +25,7 @@ app.use(require('./routes/htmlRoutes.js'));
 app.use(require('./routes/apiRoutes.js'));
 
 //db connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/deep-thoughts', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fierce-tor-31009', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
