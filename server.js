@@ -6,6 +6,7 @@ const cors =  require('cors');
 const dotenv = require('dotenv');
 
 const PORT = process.env.PORT || 3002;
+const MONGODB_URI = 'mongodb+srv://anthonyloredo5:anthonyloredo5123@cluster0.ts5pj.mongodb.net/workoutTracker?retryWrites=true&w=majority';
 
 const app = express();
 dotenv.config();
