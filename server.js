@@ -25,7 +25,7 @@ app.use(require('./routes/htmlRoutes.js'));
 app.use(require('./routes/apiRoutes.js'));
 
 //db connection
-mongoose.connect(process.env.CONNECTION_URL, {
+mongoose.connect(process.env.CONNECTION_URL || 'mongodb://localhost/deep-thoughts', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
